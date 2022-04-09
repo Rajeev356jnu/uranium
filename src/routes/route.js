@@ -65,6 +65,17 @@ const randomController= require("../controllers/randomController.js")
 //write a post request to accept an element in post request body and add it to the given array and return the new array
 router.post('/test-post3', randomController.addToArray ); //HANDLER/CONTROLLER
 
-
-
+router.post('/objpushwithpostreq', function(req,res){
+    let x=req.body.obj
+    let arr=[{"name":"manish","dob":"1/1/1995","gender":"male","city":"jalandhar","sports":["swimming"]},
+            {"name":"gopal","dob":"1/09/1995","gender":"male","city":"delhi","sports":["soccer"]},
+            {"name":"lokesh","dob":"1/1/1990","gender":"male","city":"mumbai","sports":["soccer"]}]
+    for(i=0;i<arr.length;i++){
+        if(arr[i].name===req.body.obj[0].name){
+            res.send({ msg:"not found"})
+        }}
+        // if(arr[i].name!==req.body.obj[0].name) {
+            arr.push(x)
+            res.send({ msg:"assign",data:arr})
+    })
 module.exports = router;
