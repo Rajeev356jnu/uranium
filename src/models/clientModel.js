@@ -10,6 +10,7 @@ const clientSchema = new mongoose.Schema( {
         type:String,
         enum:["male","female","other"]
     },
+    posts: {type: [], deafult: []},
 	isDeleted: {
         type:Boolean,
         default:false
